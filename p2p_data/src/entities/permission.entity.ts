@@ -6,18 +6,18 @@ import { Role } from "./role.entity";
 export class Permission {
 
     @PrimaryGeneratedColumn()
-    id: number;
+    id_permission: number;
 
-    @Column()
+    @Column({ length: 50 })
     name: string;
 
-    @Column()
-    description: string;
+    @Column({ length: 255 })
+    description: Text;
 
-    @Column()
+    @Column({default: true })
     is_active: boolean;
     
-    @ManyToMany(() => Role, (role) => role.id)
+    @ManyToMany(() => Role, (role) => role.id_role)
     roles: Role[]
 
 }
