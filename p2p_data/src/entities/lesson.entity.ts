@@ -6,7 +6,7 @@ import { Tag } from "./tag.entity";
 export class Lesson {
  
     @PrimaryGeneratedColumn()
-    id_lesson: number;
+    id: number;
 
     @Column()
     title: string;
@@ -17,9 +17,8 @@ export class Lesson {
     @Column()
     subject: string;
 
-    
     @Column()
-    is_active: boolean;
+    isActive: boolean;
 
     @ManyToOne(() => Tag, (tag) => tag.id)
     tags: Tag[]

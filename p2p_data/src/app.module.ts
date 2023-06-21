@@ -6,6 +6,8 @@ import { RoleModule } from './role/role.module';
 import { PermissionModule } from './permission/permission.module';
 import { UserTrainingModule } from './user-training/user-training.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { TrainingModule } from './training/training.module';
+import { ChapterModule } from './chapter/chapter.module';
 
 @Module({
     controllers: [AppController],
@@ -20,10 +22,12 @@ import { TypeOrmModule } from '@nestjs/typeorm';
             database: 'p2p',
             entities: [__dirname + '/**/*.entity{.ts,.js}'],
             synchronize: true,
-            extra: {
-                ssl: true
-            }
+            // extra: {
+            //     ssl: true
+            // }
         }),
+        TrainingModule,
+        ChapterModule,
     ],
 })
 export class AppModule { }

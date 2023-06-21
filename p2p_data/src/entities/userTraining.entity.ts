@@ -1,23 +1,23 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne  } from 'typeorm';
 import { User } from "./user.entity";
-// import { Training } from "./training.entity";
+import { Training } from "./training.entity";
 
 
 @Entity()
 export class UserTraining {
  
     @PrimaryGeneratedColumn()
-    id_userTraining: number;
+    id: number;
 
     @Column({ default: false })
-    is_author: boolean;
+    isAuthor: boolean;
 
     @Column({ default: true })
-    is_active: boolean;
+    isActive: boolean;
 
-    @ManyToOne(() => User, (user) => user.id_user)
+    @ManyToOne(() => User, (user) => user.userTrainings)
     user: User
 
-    // @ManyToOne(() => Training, (training) => training.id)
-    // training: Training
+    @ManyToOne(() => Training, (training) => training.userTrainings)
+    training: Training
 }

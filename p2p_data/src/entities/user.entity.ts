@@ -6,30 +6,30 @@ import { Role } from "./role.entity";
 export class User {
  
     @PrimaryGeneratedColumn()
-    id_user: number;
+    id: number;
 
-    @Column({ length : 50 })
+    @Column()
     firstName: string;
     
-    @Column({ length : 50 })
+    @Column()
     lastName: string;
 
-    @Column({ length : 100, unique: true, nullable: false })
+    @Column()
     email: string;
 
-    @Column({ length : 255, nullable: false })
+    @Column()
     password: string;
 
-    @Column({ length : 255 })
+    @Column()
     adress: string;
 
     @Column()
     birthday: Date;
 
-    @Column({ default: true })
+    @Column()
     is_active: boolean;
 
-    @ManyToOne(() => Role, (role) => role.id_role)
+    @ManyToOne(() => Role, (role) => role.id)
     role: Role
 
 }
