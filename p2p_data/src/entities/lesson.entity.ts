@@ -21,6 +21,6 @@ export class Lesson {
     isActive: boolean;
 
     @ManyToOne(() => Tag, (tag) => tag.id)
-    tag: Tag
+    tags: Tag[]
 
 }
